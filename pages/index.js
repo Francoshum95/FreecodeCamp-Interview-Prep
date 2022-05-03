@@ -10,13 +10,20 @@ const pageContent = [
   //   title: "Data Structures",
   //   url: "",
   // },
-  { title: "Take Home Project", 
+  { id: "home-1", 
+  title: "Take Home Project", 
   url: "/take-home-project" },
-  { title: "", 
+  { 
+  id: "home-2", 
+  title: "", 
   url: "" },
-  { title: "", 
+  { 
+  id: "home-3", 
+  title: "", 
   url: "" },
-  { title: "", 
+  {
+  id: "home-4", 
+  title: "", 
   url: "" }
 ];
 
@@ -36,7 +43,7 @@ export default function Home() {
       <div className="menu-content-container">
         {pageContent.map((page) => {
           return (
-            <div className="menu-content-grid">
+            <div key={page.id} className="menu-content-grid">
               <Link href={page.url}>
                 <button className="menu-content-item">
                   {page.title}

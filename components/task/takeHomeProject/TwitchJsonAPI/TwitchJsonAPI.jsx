@@ -38,7 +38,7 @@ export default function TwitchJsonAPI(){
             }).map((item => {
               return (
                 <div className={`${item.status === 'Online' ? 'bg-green-500': 'bg-red-500'} 
-                  w-full text-[10px] mb-[1px] p-2 rounded-md`} key={item.url}>
+                  w-full text-[10px] mb-[1px] p-2 rounded-md`} key={item.key}>
                   <Link
                     href={item.url}>
                     <a target="_blank">

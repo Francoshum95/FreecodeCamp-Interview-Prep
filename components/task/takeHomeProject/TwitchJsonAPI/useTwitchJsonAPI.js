@@ -13,8 +13,9 @@ export default function useTwitchJsonAPI(){
     const getResponse = async() => {
       setIsLoading(true);
       let result = [];
-
+      let key = 1;
       try {
+
         for (let i=0;i <defaultChannels.length; i++){
           const streamResponse = await fetch(`https://twitch-proxy.freecodecamp.rocks/twitch-api/streams/${defaultChannels[i]}`);
           const streamData = await streamResponse.json();
@@ -24,7 +25,7 @@ export default function useTwitchJsonAPI(){
   
           let status;
           let game;
-  
+          
           if (streamData.stream === null){
             status = "Offline"
             game = "Offline"
@@ -35,8 +36,11 @@ export default function useTwitchJsonAPI(){
             status = "Online"
             game = streamData.stream.game
           }
+
+          key += 1 ;
   
           result.push({
+            key: `twich-api-${key}`,
             name: channelData.display_name,
             icon: channelData.logo,
             status,
