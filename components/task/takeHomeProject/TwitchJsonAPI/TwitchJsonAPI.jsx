@@ -13,11 +13,12 @@ export default function TwitchJsonAPI(){
       <div className="w-[20rem] h-[15rem] rounded-lg box-border text-sm text-white">
         <div className="flex w-[10rem] mb-3 justify-between">
           {
-            buttonTypes.map(buttonType => {
+            buttonTypes.map((buttonType, index) => {
               return (
                 <button
-                onClick={() => handleOnChange(buttonType)}
-                className={`${type === buttonType ? 'cursor-auto' : 'hover:opacity-50 transition-opacity duration-200'}`}
+                  key={index+100023}
+                  onClick={() => handleOnChange(buttonType)}
+                  className={`${type === buttonType ? 'cursor-auto' : 'hover:opacity-50 transition-opacity duration-200'}`}
                 >
                   <div className="flex items-center text-xs">
                     <div className="w-3 h-3 rounded-full bg-gray-700 mr-1"></div>

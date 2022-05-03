@@ -60,6 +60,7 @@ export default function Playboard({
           {board.map((item, index) => {
             return (
               <TicBoard
+                key={index+1001}
                 winResult={winResult}
                 isLoading={isLoading}
                 isGameEnd={isGameEnd}
