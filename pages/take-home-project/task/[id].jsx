@@ -1,7 +1,5 @@
 import Head from "next/head";
 import Cards from "/components/Cards";
-import { takeHomeCardMap } from "/constants/taskHomeTask";
-import { TAKEHOMETASLID } from "/constants/path";
 
 export default function Task({ getData }) {
   const { title, name, number, path } = getData;
@@ -21,6 +19,7 @@ export default function Task({ getData }) {
 }
 
 export async function getStaticPaths() {
+  const TAKEHOMETASLID = [1, 2, 3, 4];
   const paths = TAKEHOMETASLID.map((id) => ({
     params: { id: id.toString() },
   }));
@@ -29,6 +28,35 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  const TAKEHOMETASKMENU = "/take-home-project";
+
+  const takeHomeCardMap = {
+    "1": {
+      title: "Show the Weather",
+      name: "Show the Local Weather",
+      number: 1,
+      path: TAKEHOMETASKMENU
+    },
+    "2": {
+      title: "Build a Wikipedia Viewer",
+      pname: "Build a Wikipedia Viewer",
+      "number": 2,
+      path: TAKEHOMETASKMENU
+    },
+    "3": {
+      title: "Use the Twitch JSON API",
+      pname: "Use the Twitch JSON API",
+      "number": 3,
+      path: TAKEHOMETASKMENU
+    },
+    "4": {
+      title: "Build a Tic Tac Toe Game",
+      pname: "Build a Tic Tac Toe Game",
+      "number": 4,
+      path: TAKEHOMETASKMENU
+    }
+  }
+
   const getData = takeHomeCardMap[params.id];
 
   if (!getData) {
